@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:newbmi_app/pages/inputdatapage.dart';
+import 'package:newbmi_app/splash_screen.dart';
 import 'package:share_plus/share_plus.dart';
 
 class NavBar extends StatelessWidget {
@@ -42,25 +42,24 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.favorite),
-            title: Text('Favorites',
-            style: GoogleFonts.oswald(),),
+            title: Text(
+              'Favorites',
+              style: GoogleFonts.oswald(),
+            ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FirstPage()),
-              );
-              // showDialog(
-              //         context: context,
-              //         builder: (context) {
-              //           return Center(child: CircularProgressIndicator());
-
-              //         });
+                  Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Splashscreen()),
+                              );
             },
           ),
           ListTile(
             leading: Icon(Icons.share),
-            title: Text('Share',
-            style: GoogleFonts.oswald(),),
+            title: Text(
+              'Share',
+              style: GoogleFonts.oswald(),
+            ),
             onTap: () {
               Share.share("SN creations in sri lanka.");
             },
@@ -68,8 +67,10 @@ class NavBar extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings',
-            style: GoogleFonts.oswald(),),
+            title: Text(
+              'Settings',
+              style: GoogleFonts.oswald(),
+            ),
             onTap: () {
               Share.share(
                   "Authorised app by SN creations to calculate BMI rate.\nowner by seshan nethmika.");
@@ -77,8 +78,10 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.description),
-            title: Text('Policies',
-            style: GoogleFonts.oswald(),),
+            title: Text(
+              'Policies',
+              style: GoogleFonts.oswald(),
+            ),
             onTap: () {
               showLicensePage(context: context);
             },
@@ -92,12 +95,14 @@ class NavBar extends StatelessWidget {
           //   title: Text('Exit',
           //   style: GoogleFonts.oswald(),),
 
-            // title: Text('Exit'),
-            // leading: Icon(Icons.exit_to_app),
-            ListTile(
+          // title: Text('Exit'),
+          // leading: Icon(Icons.exit_to_app),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text('Exit',
-            style: GoogleFonts.oswald(),),
+            title: Text(
+              'Exit',
+              style: GoogleFonts.oswald(),
+            ),
             onTap: () async {
               final value = await showDialog<bool>(
                   context: context,
@@ -105,17 +110,24 @@ class NavBar extends StatelessWidget {
                     return CupertinoAlertDialog(
                       title: Text(
                         'Do you want to exit?',
-                        style: GoogleFonts.oswald(fontSize: 15,fontWeight: FontWeight.bold),
+                        style: GoogleFonts.oswald(
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                       actions: [
                         TextButton(
                             onPressed: () => Navigator.of(context).pop(false),
-                            child: Text('No',style: GoogleFonts.oswald(),)),
+                            child: Text(
+                              'No',
+                              style: GoogleFonts.oswald(),
+                            )),
                         TextButton(
                             onPressed: () {
                               SystemNavigator.pop();
                             },
-                            child: Text('Exit',style: GoogleFonts.oswald(),)),
+                            child: Text(
+                              'Exit',
+                              style: GoogleFonts.oswald(),
+                            )),
                       ],
                     );
                   });
